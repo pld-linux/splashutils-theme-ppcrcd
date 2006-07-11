@@ -1,0 +1,48 @@
+#
+# Conditional build:
+%bcond_with	scaler	# build for splashutils with scale capabilities
+
+%define		theme	ppcrcd
+Summary:	Splashutils - ppcrcd theme
+Summary(pl):	Splashutils - motyw ppcrcd
+Name:		splashutils-theme-%{theme}
+Version:	1
+Release:	1
+License:	GPL v2
+Group:		Themes
+Source0:	http://ppcrcd.pld-linux.org/fbsplash/fbsplash-theme-%{theme}.tar.bz2
+# Source0-md5:	b98b6ec27807d6cef53c4f5bb5d21f81
+URL:		http://ppcrcd.pld-linux.org/fbsplash/
+%{!?with_scaler:BuildRequires: /usr/bin/convert}
+Requires:	splashutils
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+PPCRCD theme for splashutils.
+
+%description -l pl
+Motyw PPCRCD do splashutils.
+
+%prep
+%setup -q -n fbsplash-theme-%{theme}
+
+%build
+%if %{with scaler}
+./calc_splash_configs.pl ppcrcd.jpg
+%else
+./calc_splash_configs.pl ppcrcd.png 1 -- -verbose -quality 90
+%endif
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/splash/
+cp -a ppcrcd $RPM_BUILD_ROOT%{_sysconfdir}/splash/
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%{_sysconfdir}/splash/%{theme}
