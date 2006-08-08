@@ -6,12 +6,12 @@
 Summary:	Splashutils - ppcrcd theme
 Summary(pl):	Splashutils - motyw ppcrcd
 Name:		splashutils-theme-%{theme}
-Version:	1
+Version:	2
 Release:	1
 License:	GPL v2
 Group:		Themes
-Source0:	http://ppcrcd.pld-linux.org/fbsplash/fbsplash-theme-%{theme}.tar.bz2
-# Source0-md5:	b98b6ec27807d6cef53c4f5bb5d21f81
+Source0:	http://ppcrcd.pld-linux.org/fbsplash/fbsplash-theme-%{theme}-%{version}.tar.bz2
+# Source0-md5:	87b6596e75f2708922af1b8f7328e500
 URL:		http://ppcrcd.pld-linux.org/fbsplash/
 %{!?with_scaler:BuildRequires: /usr/bin/convert}
 Requires:	splashutils
@@ -25,7 +25,7 @@ PPCRCD theme for splashutils.
 Motyw PPCRCD do splashutils.
 
 %prep
-%setup -q -n fbsplash-theme-%{theme}
+%setup -q -n fbsplash-theme-%{theme}-%{version}
 
 %build
 %if %{with scaler}
