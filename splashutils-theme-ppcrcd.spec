@@ -18,6 +18,8 @@ Requires:	splashutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_sysconfdir	/etc/splash
+
 %description
 PPCRCD theme for splashutils.
 
@@ -37,12 +39,12 @@ Motyw PPCRCD do splashutils.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/splash/
-cp -a ppcrcd $RPM_BUILD_ROOT%{_sysconfdir}/splash/
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/
+cp -a ppcrcd $RPM_BUILD_ROOT%{_sysconfdir}/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_sysconfdir}/splash/%{theme}
+%{_sysconfdir}/%{theme}
