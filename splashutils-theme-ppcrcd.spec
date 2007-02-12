@@ -4,7 +4,7 @@
 
 %define		theme	ppcrcd
 Summary:	Splashutils - ppcrcd theme
-Summary(pl):	Splashutils - motyw ppcrcd
+Summary(pl.UTF-8):   Splashutils - motyw ppcrcd
 Name:		splashutils-theme-%{theme}
 Version:	2.1
 Release:	1
@@ -23,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 PPCRCD theme for splashutils.
 
-%description -l pl
+%description -l pl.UTF-8
 Motyw PPCRCD do splashutils.
 
 %prep
