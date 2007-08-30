@@ -14,6 +14,7 @@ Source0:	http://ppcrcd.pld-linux.org/fbsplash/fbsplash-theme-%{theme}-%{version}
 # Source0-md5:	101ce1bca5f8e146df81c767ed906f59
 URL:		http://ppcrcd.pld-linux.org/fbsplash/
 %{!?with_scaler:BuildRequires: /usr/bin/convert}
+Provides:	fbsplash-theme
 Requires:	splashutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
