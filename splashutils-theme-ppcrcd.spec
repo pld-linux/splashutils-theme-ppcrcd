@@ -16,6 +16,7 @@ URL:		http://ppcrcd.pld-linux.org/fbsplash/
 %{!?with_scaler:BuildRequires: /usr/bin/convert}
 Requires:	splashutils
 Provides:	fbsplash-theme
+Provides:	splash-theme
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
